@@ -11,7 +11,7 @@ By demonstrating what the design, development, and implementation of such a reso
 ## Disclaimer
 - All materials provided on this site are shared for educational purposes and are the property of their respective authors or institutions.
 - The information is provided "as is" and without warranties of any kind, either expressed or implied. We do not guarantee the accuracy, completeness, or usefulness of any information presented.
-- You agree to indemnify and hold harmless RhodySyllabi and its affiliates from any claim, loss, or damage, including legal fees, resulting from your use of information from this site
+- You agree to indemnify and hold harmless RhodySyllabi and its affiliates from any claim, loss, or damage, including legal fees, resulting from your use of information from this site.
 - Your use of this site is at your sole risk. RhodySyllabi will not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your access to or use of this site.
 
 
