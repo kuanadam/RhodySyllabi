@@ -2,7 +2,7 @@
 ## University of Rhode Island's Syllabus Library
 This project explores the concept of what a syllabus library for the University of Rhode Island would look like. 
 ## Issue
-One of the gaps in the resources that the University offers is a syllabus library, which would be something heavily utilized by students when registering for classes.
+One of the gaps in the resources that the University offers is a syllabus library, a tool that can be something heavily utilized by students when registering for classes.
 Not only would students be able to make more informed decisions during registration, but advisors would not need to be as overwhelmed with less workload.
 
 ## Objective
