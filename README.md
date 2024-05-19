@@ -6,7 +6,7 @@ One of the gaps in the resources that the University offers is a syllabus librar
 Not only would students be able to make more informed decisions during registration, but advisors would not need to be as overwhelmed with less workload.
 
 ## Objective
-By demonstrating what the design, development, and implementations of such a resource would look like, this project is meant to showcase a real solution to an existing problem. This project can also be used as a foundational model in the development towards an official website.
+By demonstrating what the design, development, and implementation of such a resource would look like, this project is meant to showcase a real solution to an existing problem. This project can also be used as a foundational model in the development towards an official website.
 
 ## Disclaimer
 - All materials provided on this site are shared for educational purposes and are the property of their respective authors or institutions.
