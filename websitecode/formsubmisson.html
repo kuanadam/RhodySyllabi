@@ -3,35 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Syllabus Submission</title>
 </head>
 <body>
-    <a href = "homepage.html"> <button> home </button> </a>
-<div class = "submission">
-    <h2>Kindly complete the form below to request the addition of your syllabus to the syllabus library</h2>
+    <a href="homepage.html"><button>Home</button></a>
+    <div class="submission">
+        <h2>Kindly complete the form below to request the addition of your syllabus to the syllabus library</h2>
 
-    <form>
-    <label> Course
-        <input name = 'course' placeholder = "ex: CSC 106"/>
-    </label>
-
-    <label>Professor
-        <input name = 'professor'/>
-    </label>
-
-    <label> Upload the Syllabus File
-        <input name = 'syllabus' type = 'file'/>
-    </label>
-
-    <label>Date when Syllabus was received
-        <input name = 'semester' type = 'date'/>
-
-    <div class = "submission">
-    <button type = 'submit'> Submit </button>
+        <form action="/submit" method="POST">
+            <label>Course
+                <input name="course" placeholder="ex: CSC 106" required/>
+            </label>
+            <br>
+            <label>Professor
+                <input name="professor" required/>
+            </label>
+            <br>
+            <label>Upload the Syllabus File URL
+                <input name="syllabi_File" type="text" required/>
+            </label>
+            <br>
+            <label>Date when Syllabus was received
+                <input name="syllabi_Date" type="date" required/>
+            </label>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
     </div>
-    </label>
-    </form>
-</div>
 </body>
 </html>
