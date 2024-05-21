@@ -43,7 +43,7 @@ app.post('/submit', async (req, res) => {
     try {
         const [result] = await pool.query('INSERT INTO rhodydatabase SET ?', formData);
         console.log('Database Result:', result); // Log result from the database
-        res.send('Form data submitted and stored in database.');
+        res.redirect('/'); // Redirect back to the home page
     } catch (err) {
         console.error('Database Error:', err); // Log any errors
         res.status(500).send('Error storing data in database.');
