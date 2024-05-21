@@ -1,9 +1,22 @@
-# Auto detect text files and perform LF normalization
+# Set default behavior to automatically normalize line endings
 * text=auto
 
-# Specific settings for certain file types
-*.md text
-*.js text
-*.json text
+# Declare files that will always have LF line endings on checkout
 *.sh text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+
+# Windows-specific files
 *.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files should be excluded from line ending normalization
+*.jpg binary
+*.png binary
+*.gif binary
+*.pdf binary
+*.zip binary
+*.exe binary
