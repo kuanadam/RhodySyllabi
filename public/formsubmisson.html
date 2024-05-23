@@ -11,7 +11,7 @@
     <div class="submission">
         <h2>Kindly complete the form below to request the addition of your syllabus to the syllabus library</h2>
 
-        <form action="/submit" method="POST">
+        <form action="/submit" method="POST" id = "submissionForm">
             <label>Course
                 <input name="course" placeholder="ex: CSC 106" required/>
             </label>
@@ -28,8 +28,14 @@
                 <input name="syllabi_Date" type="date" required/>
             </label>
             <br>
-            <button type="submit">Submit</button>
+            <button id = "submitButton" type="submit">Submit</button>
         </form>
     </div>
+    <div id = "popUp" class = "model">
+        <div class = "model-content">
+            <p>Submission Was Successful</p>
+        </div>
+    </div>
+    <script src="script.js"> </script>
 </body>
 </html>
