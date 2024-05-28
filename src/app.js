@@ -17,10 +17,13 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve static files
-app.use(express.static(path.join(__dirname, '../public')));
-app.use('/assets', express.static(path.join(__dirname, '../assets')));
+// Set EJS as the templating engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '..', 'views'));
 
+// Serve static files
+app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use('/assets', express.static(path.join(__dirname, '..', 'assets')));
 
 // Create a connection pool to the MySQL database
 const pool = mysql.createPool({
@@ -30,9 +33,14 @@ const pool = mysql.createPool({
     database: process.env.MYSQL_DATABASE
 });
 
-// Serve the HTML form
+// Serve the homepage with the search form
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/formsubmission.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'homepage.html'));
+});
+
+// Serve the form submission page
+app.get('/formsubmission.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'formsubmisson.html'));
 });
 
 // Handle form submission
@@ -49,10 +57,24 @@ app.post('/submit', async (req, res) => {
     try {
         const [result] = await pool.query('INSERT INTO rhodydatabase SET ?', formData);
         console.log('Database Result:', result); // Log result from the database
-        res.redirect('/formsubmisson.html'); 
+        res.redirect('/formsubmisson.html');
     } catch (err) {
         console.error('Database Error:', err); // Log any errors
         res.status(500).send('Error storing data in database.');
+    }
+});
+
+// Handle search queries and render results page
+app.get('/search', async (req, res) => {
+    const query = req.query.query;
+    const searchQuery = `%${query}%`;
+
+    try {
+        const [rows] = await pool.query('SELECT * FROM rhodydatabase WHERE course LIKE ?', [searchQuery]);
+        res.render('results', { results: rows, query: query });
+    } catch (err) {
+        console.error('Database Error:', err); // Log any errors
+        res.status(500).send(err);
     }
 });
 
