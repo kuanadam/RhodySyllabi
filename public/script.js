@@ -23,6 +23,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         setTimeout(function() {
             model.style.display = 'none';
             sessionStorage.removeItem('formSubmitted');
-        }, 1000); // 3 seconds
+        }, 1000); // 1 seconds
     }
 });
