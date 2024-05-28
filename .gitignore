@@ -1,3 +1,5 @@
 .env
 node_modules/
 express.ps1
+/uploads/*
+!/uploads/README.md
