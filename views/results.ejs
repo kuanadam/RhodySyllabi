@@ -23,7 +23,7 @@
                     <td><%= row.id %></td>
                     <td><%= row.course %></td>
                     <td><%= row.professor %></td>
-                    <td><%= row.syllabi_File %></td>
+                    <td><a href="/uploads/<%= row.syllabi_File %>"><%= row.original_filename %></a></td>
                     <td><%= row.syllabi_Date %></td>
                 </tr>
             <% }) %>

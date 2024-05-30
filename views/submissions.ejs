@@ -7,8 +7,15 @@
     <title>All Submissions</title>
 </head>
 <body>
+    <header class = "header">
+        <a href = "homepage.html" class = "logo">RhodySyllabi</a>
+        <nav class = "navbar">
+            <a href = "index.html"> Index </a>
+            <a href = "formsubmission.html"> Form </a>
+            <a href = "submissions"> Library </a>
+        </nav>
+    </header>
     <h1>All Syllabus Submissions</h1>
-    <a href="homepage.html"><button>Back to Home</button></a>
     <% if (submissions.length > 0) { %>
         <table>
             <tr>
@@ -17,16 +24,14 @@
                 <th>Professor</th>
                 <th>Syllabus File</th>
                 <th>Date</th>
-                <th>Download</th>
             </tr>
             <% submissions.forEach(submission => { %>
                 <tr>
                     <td><%= submission.entry_id %></td>
                     <td><%= submission.course %></td>
                     <td><%= submission.professor %></td>
-                    <td><%= submission.syllabi_File %></td>
+                    <td><a href="/uploads/<%= submission.syllabi_File %>"><%= submission.original_filename %></a></td>
                     <td><%= submission.syllabi_Date %></td>
-                    <td><a href="/uploads/<%= submission.syllabi_File %>" download>Download</a></td>
                 </tr>
             <% }) %>
         </table>
