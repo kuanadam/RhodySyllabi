@@ -69,6 +69,7 @@ app.post('/submit', upload, async (req, res) => {
         course: req.body.course,
         professor: req.body.professor,
         syllabi_File: req.file.filename, // Use req.file.filename for the uploaded file
+        original_filename: req.file.originalname,
         syllabi_Date: req.body.syllabi_Date
     };
 
