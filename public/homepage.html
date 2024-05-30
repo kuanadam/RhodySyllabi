@@ -7,19 +7,26 @@
     <title>Document</title>
 </head>
 <body>
-    <a href = "index.html"><button>back</button></a>
-    <a href = "formsubmission.html"> <button> form </button></a>
-    <a href = "submissions"> <button> all syllabi </button></a>
+    <header class = "header">
+            <a href = "homepage.html" class = "logo">RhodySyllabi</a>
+        <nav class = "navbar">
+            <a href = "index.html"> Index </a>
+            <a href = "formsubmission.html"> Form </a>
+            <a href = "submissions"> Library </a>
+        </nav>
+    </header>
     <div class = "home">
-        <h2> RhodySyllabi</h2>
-        <p> Search through the syllabus library by entering the course prefix and number</p>
-        <p>(ex: CSC 106)</p>
+        <div class = "uriColor">
+        <h1> RhodySyllabi</h1>
+    </div>
+        <h4> Search through the syllabus library by entering the course prefix and number</h4>
+        <h5>(ex: CSC 106)</h5>
         
         <form action = "/search" method = "GET">
-        <input type = "text" name = "query" placeholder= "   Search for Syllabus" required>
-            <button type = "submit" >Submit </button>
+            <input type = "text" name = "query" placeholder= "   Search for Syllabus" required>
+                <button type = "submit" >Submit </button>
 
-            </form>
+        </form>
 
 
     </div>
