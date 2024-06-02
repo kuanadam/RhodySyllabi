@@ -10,16 +10,16 @@
     <header class = "header">
         <a href = "homepage.html" class = "logo">RhodySyllabi</a>
         <nav class = "navbar">
-            <a href = "index.html"> Index </a>
+            <a href = "homepage.html"> Search </a>
             <a href = "formsubmission.html"> Form </a>
             <a href = "submissions"> Library </a>
         </nav>
     </header>
+    <div class = "container">
     <h1>All Syllabus Submissions</h1>
     <% if (submissions.length > 0) { %>
         <table>
             <tr>
-                <th>ID</th>
                 <th>Course</th>
                 <th>Professor</th>
                 <th>Syllabus File</th>
@@ -27,7 +27,6 @@
             </tr>
             <% submissions.forEach(submission => { %>
                 <tr>
-                    <td><%= submission.entry_id %></td>
                     <td><%= submission.course %></td>
                     <td><%= submission.professor %></td>
                     <td><a href="/uploads/<%= submission.syllabi_File %>"><%= submission.original_filename %></a></td>
@@ -38,5 +37,6 @@
     <% } else { %>
         <p>No submissions found.</p>
     <% } %>
+    </div>
 </body>
 </html>

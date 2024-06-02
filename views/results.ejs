@@ -7,12 +7,20 @@
     <title>Search Results</title>
 </head>
 <body>
+    <header class = "header">
+        <a href = "homepage.html" class = "logo">RhodySyllabi</a>
+    <nav class = "navbar">
+        <a href = "homepage.html"> Search </a>
+        <a href = "formsubmission.html"> Form </a>
+        <a href = "submissions"> Library </a>
+    </nav>
+    </header>
+    <div class = "container">
     <h1>Search Results for "<%= query %>"</h1>
-    <a href="homepage.html"><button>Back to Search</button></a>
+    
     <% if (results.length > 0) { %>
         <table>
             <tr>
-                <th>ID</th>
                 <th>Course</th>
                 <th>Professor</th>
                 <th>Syllabus File</th>
@@ -20,7 +28,6 @@
             </tr>
             <% results.forEach(row => { %>
                 <tr>
-                    <td><%= row.id %></td>
                     <td><%= row.course %></td>
                     <td><%= row.professor %></td>
                     <td><a href="/uploads/<%= row.syllabi_File %>"><%= row.original_filename %></a></td>
@@ -31,5 +38,6 @@
     <% } else { %>
         <p>No results found.</p>
     <% } %>
+    </div>
 </body>
 </html>
