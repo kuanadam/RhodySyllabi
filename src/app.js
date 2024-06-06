@@ -92,7 +92,14 @@ app.get('/search', async (req, res) => {
 
     try {
         const [rows] = await pool.query('SELECT * FROM rhodydatabase WHERE course LIKE ?', [searchQuery]);
-        res.render('results', { results: rows, query: query });
+        
+        // Format dates
+        const formattedRows = rows.map(row => ({
+            ...row,
+            syllabi_Date: new Date(row.syllabi_Date).toISOString().split('T')[0] // Format date to YYYY-MM-DD
+        }));
+
+        res.render('results', { results: formattedRows, query: query });
     } catch (err) {
         console.error('Database Error:', err); // Log any errors
         res.status(500).send(err);
@@ -114,7 +121,14 @@ app.get('/data', async (req, res) => {
 app.get('/submissions', async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM rhodydatabase');
-        res.render('submissions', { submissions: rows });
+
+        // Format dates
+        const formattedRows = rows.map(row => ({
+            ...row,
+            syllabi_Date: new Date(row.syllabi_Date).toISOString().split('T')[0] // Format date to YYYY-MM-DD
+        }));
+
+        res.render('submissions', { submissions: formattedRows });
     } catch (err) {
         console.error('Database Error:', err); // Log any errors
         res.status(500).send(err);
