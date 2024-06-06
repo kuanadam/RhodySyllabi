@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "../assets/style.css">
-    <title>Homepage</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <title>Home</title>
 </head>
 <body>
     <header class = "header">
@@ -15,20 +17,17 @@
             <a href = "submissions"> Library </a>
         </nav>
     </header>
-    <div class = "home">
-        <div class = "uriColor">
-        <h1> RhodySyllabi</h1>
-    </div>
-        <h4> Search through the syllabus library by entering the course prefix and number</h4>
-        <h5>(ex: CSC 106)</h5>
-        
+    <div class = "homePage">
+        <h1> Empowering students to make informed decisions with ease</h1>
+        <p>RhodySyllabi is your ultimate syllabus library—<span class = "homePage-bold">access, share, and explore course syllabi</span> at your fingertips<p>
+        <img src = "../assets/design.jpg">
+        <h5>Get Started</h5>
         <form action = "/search" method = "GET">
-            <input type = "text" name = "query" placeholder= "   Search for Syllabus" required>
-                <button type = "submit" >Submit </button>
-
+            <div class = "search">
+            <span class="material-symbols-outlined"> search</span>
+            <input class = "search-input" type = "text" name = "query" placeholder= " Search" required>
+            </div>
         </form>
-
-
     </div>
 </body>
 </html>

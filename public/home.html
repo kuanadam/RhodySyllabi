@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "../assets/style.css">
+    <title>Homepage</title>
+</head>
+<body>
+    <header class = "header">
+            <a href = "homepage.html" class = "logo">RhodySyllabi</a>
+        <nav class = "navbar">
+            <a href = "homepage.html"> Search </a>
+            <a href = "formsubmission.html"> Form </a>
+            <a href = "submissions"> Library </a>
+        </nav>
+    </header>
+    <div class = "home">
+        <div class = "uriColor">
+        <h1> RhodySyllabi</h1>
+    </div>
+        <h4> Search through the syllabus library by entering the course prefix and number</h4>
+        <h5>(ex: CSC 106)</h5>
+        
+        <form action = "/search" method = "GET">
+            <input type = "text" name = "query" placeholder= "   Search for Syllabus" required>
+                <button type = "submit" >Submit </button>
+
+        </form>
+
+
+    </div>
+</body>
+</html>
