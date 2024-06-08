@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+
 html, body {
     font-family:Montserrat ,system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
     color: rgb(0, 0, 0);
@@ -16,67 +17,83 @@ html, body {
     align-items: center;
     
 }
-
-
-
-.home  {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.homePage {
+.homePage{
     display:flex;
-    flex-direction: column;
-    padding-inline: 500px;
-    padding-top: 50px;
-}
-.homePage *{
-    margin-bottom: 0;
-    max-width: 800px;
-    text-align: left;
     align-items: center;
+    flex-direction: row;
 }
-.homePage h1 {
-    font-size: 60px;
-    text-shadow: 0px 1px, 1px 0px, 1px 0px;
+.textcontent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-inline: 13rem;
+    padding-top: 2rem;
+    
 }
+
+.homePage img {
+    max-width: 50%;
+}
+
 .homePage-bold {
     font-weight: 900;
-    font-size: 18px;
+    font-size: 1.3rem;
 }
+
 
 .material-symbols-outlined{
     color: rgba(0, 0, 0, 0.2);
 }
 .search {
-    --padding: 14px;
-    width: max-content;
     display: flex;
-    align-items: center;
+    margin-inline: 13rem;
+    width: 20rem;
     background: #f6f6f6;
-    padding: 14px;
-    border-radius: 28px;
+    padding: 1rem;
+    border-radius: 3rem;
     transition: 0.25s;
 }
 
 .search-input {
-    font-size: 18px;
+    font-size: 1.3rem;
     font-family:'Montserrat', sans-serif;
     outline: none;
     border: none;
-    margin-left: 14px;
+    margin-left: 0.6rem;
     background: transparent;
-    width: 200px;
 }
 .search-input::placeholder{
     color: rgba(0, 0, 0, 0.25);
     font-weight: 700;
+    
 }
 .search:focus-within{
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.75);
 }
+
+/* Animation for blow up and jiggle */
+@keyframes blowUp {
+    0% { transform: scale(1); }
+    50% { transform: scale(5); }
+    100% { transform: scale(1); }
+}
+
+@keyframes jiggle {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    175% { transform: translateX(5px); }
+}
+
+.blow-up {
+    display: inline-block;
+    animation: blowUp 0.5s ease-in-out forwards, jiggle 0.5s 0.5s;
+}
+
+
+
+
+
 .container-agreed {
     display: flex;
     flex-direction: row;
@@ -121,6 +138,7 @@ html, body {
 /* navbar */
 .header {
     box-sizing: border-box;
+    box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.75);
     position: fixed;
     border-style: solid;
     border-width: thin;
@@ -130,7 +148,7 @@ html, body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px 100px;
+    padding: 0.5rem 6.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -141,20 +159,20 @@ html, body {
     background:linear-gradient(to right, #68abe8 50%, #041e42 50%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding-inline: 300px;
+    padding-inline: 7rem;
     margin: 0;
-    font-size: 40px;
+    font-size: 2.5rem;
     color: #fff;
     font-weight: 700;
     text-decoration: none;
 }
 .navbar a {
     position: relative;
-    font-size: 20px;
+    font-size: 1.7em;
     color: #000000;
     font-weight: 700;
     text-decoration: none;
-    margin-left: 30px;
+    margin-left: 1.875rem;
 }
 
 .navbar a:hover {
