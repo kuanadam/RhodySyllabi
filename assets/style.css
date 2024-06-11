@@ -1,54 +1,209 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 html, body {
-    font-family:Montserrat ,system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+    font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: rgb(0, 0, 0);
     background: #FFFBF4;
-    height: 100%;
-    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding-top: 4.9em;
+    box-sizing: border-box;
     
 }
 
-.container {
-    display:flex;
-    justify-content: center;
-    flex-direction : column;
-    align-items: center;
+
+
+/* Media Queries */
+
+/* Large screens (desktop, 2560x1440) */
+@media (min-width: 1600px) {
+    .textcontent {
+        padding-inline: 8rem;
+    }
+
+    .homePage img {
+        max-width: 35%;
+        height: auto;
+        
+    }
+
+    .search {
+        margin-inline: 13rem;
+        max-height: 30em;
+        height: auto;
+    }
+
+    .logo {
+        padding-inline: 7rem;
+    }
+}
+
+/* Medium screens (desktop, 1440x900) */
+@media (max-width: 1600px) and (min-width: 1024px) {
+    .textcontent {
+        font-size: 1em;
+        
+    }
     
+    .homePage img {
+        max-width: 35%;
+        height: auto;
+        
+    }
+
+    .search {
+        margin-inline: 8rem;
+        max-height: 30em;
+        height: auto;
+    }
+
+    .logo {
+        padding-inline: 5rem;
+    }
 }
-.homePage{
-    display:flex;
+
+/* Small screens (tablets, 1024x768) */
+@media (max-width: 1024px) {
+    .header {
+        padding: 0.5rem 2rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+        padding-inline: 0;
+    }
+
+    .navbar a {
+        font-size: 1.5rem;
+    }
+
+    .homePage img {
+        max-width: 35%;
+        height: auto;
+        
+    }
+
+    .textcontent {
+        padding-inline: 4rem;
+    }
+
+    .search {
+        margin-inline: 4rem;
+        width: 100%;
+    }
+}
+
+/* Extra small screens (phones, 480x320) */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar a {
+        margin-left: 0;
+        font-size: 1.2rem;
+    }
+
+    .textcontent {
+        padding-inline: 1rem;
+    }
+
+    .search {
+        margin-inline: 1rem;
+        width: 100%;
+    }
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    flex-direction: row;
 }
+
+.homePage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    max-height: 100vh;
+    max-width: 100vw;
+    padding: 0;
+    margin-top: -35em;
+}
+
 .textcontent {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-inline: 13rem;
-    padding-top: 2rem;
-    
+    margin: 0;
+    padding-top: 3rem;
+    font-size: 1em;
+    overflow: hidden;
 }
 
-.homePage img {
-    max-width: 50%;
+.textcontent p {
+    margin-bottom: 0.2em;
 }
+.features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5em;
+    max-width: 100%;
+    padding: 0 1em; /* Adjust padding as needed */
+    overflow: auto; /* Add overflow property to enable scrolling if content exceeds viewport */
+}
+
+/* For .pros ul */
+.pros ul {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+    justify-content: center; /* Center items horizontally */
+    font-weight: 900;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 1em; /* Remove default margin */
+    gap: 2em; /* Adjust gap between items */
+}
+
+/* Individual list items */
+.pros ul li {
+    margin-inline: 20em; /* Adjust margin between items */
+}
+
 
 .homePage-bold {
     font-weight: 900;
     font-size: 1.3rem;
 }
 
-
-.material-symbols-outlined{
+.material-symbols-outlined {
     color: rgba(0, 0, 0, 0.2);
 }
+
 .search {
     display: flex;
-    margin-inline: 13rem;
-    width: 20rem;
     background: #f6f6f6;
     padding: 1rem;
     border-radius: 3rem;
@@ -57,22 +212,82 @@ html, body {
 
 .search-input {
     font-size: 1.3rem;
-    font-family:'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     outline: none;
     border: none;
     margin-left: 0.6rem;
     background: transparent;
 }
-.search-input::placeholder{
+
+.search-input::placeholder {
     color: rgba(0, 0, 0, 0.25);
     font-weight: 700;
-    
 }
-.search:focus-within{
+
+.search:focus-within {
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.75);
 }
 
-/* Animation for blow up and jiggle */
+/* Motivating Animation */
+.blow-up {
+    position: absolute;
+    display: inline-block;
+    font-size: 2.3em;
+    margin-inline: 0.3em;
+    animation: blowUp 0.5s ease-in-out forwards, jiggle 0.5s 0.5s, scrollDown 1s 1s forwards;
+    
+}
+
+/* Inspiring Animation */
+.replacement {
+    position: absolute;
+    display: inline-block;
+    font-size: 2.3em;
+    margin-inline: 1.2em;
+    opacity: 0;
+    text-align: center;
+    animation: slideIn 1s 1s forwards, scrollDown 1s 2s forwards; /* Delay to match previous animation end */
+    
+}
+/* Leading Animation */
+.replacement-1 {
+    position: absolute;
+    font-size: 2.4em;
+    margin-inline: 1.4em;
+    display: inline-block;
+    opacity: 0;
+    text-align: center;
+    animation: slideIn 1s 2s forwards, scrollDown 1s 3s forwards; /* Delay to match previous animation end */
+    
+}
+/* Helping Animation */
+.replacement-2 {
+    position: absolute;
+    font-size: 2.4em;
+    margin-inline: 1.4em;
+    display: inline-block;
+    opacity: 0;
+    text-align: center;
+    animation: slideIn 1s 3s forwards, scrollDown 1s 4s forwards; /* Delay to match previous animation end */
+    
+}
+/* Empowering Animation */
+.replacement-3 {
+    background: linear-gradient(to right, #0614da, #68abe8);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    display: inline-block;
+    font-size: 2em;
+    padding-bottom: 1px;
+    font-weight: 700;
+    color: #68abe8;
+    opacity: 0;
+    text-align: center;
+    animation: slideIn 1s 4s forwards;
+    
+}
+
 @keyframes blowUp {
     0% { transform: scale(1); }
     50% { transform: scale(5); }
@@ -82,16 +297,18 @@ html, body {
 @keyframes jiggle {
     0%, 100% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
-    175% { transform: translateX(5px); }
+    75% { transform: translateX(5px); }
 }
 
-.blow-up {
-    display: inline-block;
-    animation: blowUp 0.5s ease-in-out forwards, jiggle 0.5s 0.5s;
+@keyframes scrollDown {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
 }
 
-
-
+@keyframes slideIn {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
 
 
 .container-agreed {
@@ -104,42 +321,47 @@ html, body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: -70em;
+}
+.submission h2{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2em;
 }
 
-/* Pop up styling */
 .model {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
-/* Model Content/Box */
 .model-content {
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
-    width: 80%; /* Could be more or less, depending on screen size */
-    text-align: center; /* Center the text */
+    width: 80%;
+    text-align: center;
 }
 
-/* Split Coloring for RhodySyllabi */
-.uriColor{
-    background:linear-gradient(to right, #68abe8 50%, #041e42 50%);
+.uriColor {
+    background: linear-gradient(to right, #68abe8 50%, #041e42 50%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* navbar */
 .header {
     box-sizing: border-box;
     box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.75);
     position: fixed;
+    height: 4.9em;
     border-style: solid;
     border-width: thin;
     border-color: rgba(0, 0, 0, 0.1);
@@ -154,32 +376,36 @@ html, body {
     align-items: center;
     z-index: 100;
 }
-/* rhodysyllabi top left nav bar*/
+
 .logo {
-    background:linear-gradient(to right, #68abe8 50%, #041e42 50%);
+    background: linear-gradient(to right, #68abe8 50%, #041e42 50%);
     background-clip: text;
+    font-family: 'Oswald', sans-serif;
     -webkit-text-fill-color: transparent;
-    padding-inline: 7rem;
+    padding-inline: 3vw;
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2.5em;
     color: #fff;
-    font-weight: 700;
+    font-weight: 900;
     text-decoration: none;
 }
+
 .navbar a {
+    height: 4.9em;
     position: relative;
     font-size: 1.7em;
     color: #000000;
     font-weight: 700;
     text-decoration: none;
     margin-left: 1.875rem;
+    margin-top: 5em;
 }
 
 .navbar a:hover {
     color: rgb(203, 201, 201);
     transition: .3s;
 }
-/* underline on hover */
+
 .navbar a::before {
     content: '';
     position: absolute;
