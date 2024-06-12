@@ -1,65 +1,44 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 html, body {
     font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: rgb(0, 0, 0);
     background: #FFFBF4;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    padding-top: 4.9em;
-    box-sizing: border-box;
-    
+    margin: 0;
+    padding: 0;
 }
 
 
-
+img {
+    width: 100%;
+    height: auto;
+}
 /* Media Queries */
 
 /* Large screens (desktop, 2560x1440) */
 @media (min-width: 1600px) {
     .textcontent {
-        padding-inline: 8rem;
-    }
-
-    .homePage img {
-        max-width: 35%;
-        height: auto;
         
     }
 
     .search {
-        margin-inline: 13rem;
-        max-height: 30em;
-        height: auto;
     }
 
     .logo {
-        padding-inline: 7rem;
+        
     }
 }
 
 /* Medium screens (desktop, 1440x900) */
 @media (max-width: 1600px) and (min-width: 1024px) {
     .textcontent {
-        font-size: 1em;
-        
+    
     }
     
-    .homePage img {
-        max-width: 35%;
-        height: auto;
-        
-    }
 
     .search {
-        margin-inline: 8rem;
-        max-height: 30em;
-        height: auto;
+    
     }
 
     .logo {
@@ -70,39 +49,30 @@ html, body {
 /* Small screens (tablets, 1024x768) */
 @media (max-width: 1024px) {
     .header {
-        padding: 0.5rem 2rem;
+       
     }
 
     .logo {
-        font-size: 2rem;
-        padding-inline: 0;
+        
     }
 
     .navbar a {
-        font-size: 1.5rem;
-    }
-
-    .homePage img {
-        max-width: 35%;
-        height: auto;
         
     }
 
     .textcontent {
-        padding-inline: 4rem;
+        
     }
 
     .search {
-        margin-inline: 4rem;
-        width: 100%;
+        
     }
 }
 
 /* Extra small screens (phones, 480x320) */
 @media (max-width: 480px) {
     .header {
-        flex-direction: column;
-        align-items: flex-start;
+        
     }
 
     .logo {
@@ -129,69 +99,63 @@ html, body {
         width: 100%;
     }
 }
-
-
 .container {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10em;
+    padding-inline: 30%;
 }
+
 
 .homePage {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
-    max-height: 100vh;
-    max-width: 100vw;
-    padding: 0;
-    margin-top: -35em;
+    margin: 0 auto;
+    margin-top: 6em;
+    z-index: 1;
+    width: 100%;
+    max-width: 3000px;
+    padding: 0 5em;
 }
 
+.img-banner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+}
+.img-banner img {
+    width: 75%; /* Adjust the image width as needed */
+    height: auto; 
+}
 .textcontent {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: -3em;
+    width: 100%;
     flex-direction: column;
-    margin: 0;
-    padding-top: 3rem;
-    font-size: 1em;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin: 4em;
+    transform: translateX(50px); /* Moves the element 50px to the right */
 }
 
-.textcontent p {
-    margin-bottom: 0.2em;
-}
 .features {
     display: flex;
+    position: absolute;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 5em;
     max-width: 100%;
-    padding: 0 1em; /* Adjust padding as needed */
-    overflow: auto; /* Add overflow property to enable scrolling if content exceeds viewport */
+    padding: 0 2em;
+    overflow: hidden;
 }
-
-/* For .pros ul */
-.pros ul {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to next line */
-    justify-content: center; /* Center items horizontally */
-    font-weight: 900;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    margin-top: 1em; /* Remove default margin */
-    gap: 2em; /* Adjust gap between items */
-}
-
-/* Individual list items */
-.pros ul li {
-    margin-inline: 20em; /* Adjust margin between items */
-}
-
 
 .homePage-bold {
     font-weight: 900;
@@ -204,8 +168,11 @@ html, body {
 
 .search {
     display: flex;
+    justify-content: center;
+    align-items: center;
     background: #f6f6f6;
     padding: 1rem;
+    width: 100%;
     border-radius: 3rem;
     transition: 0.25s;
 }
@@ -215,7 +182,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     outline: none;
     border: none;
-    margin-left: 0.6rem;
+    margin-left: 2rem;
     background: transparent;
 }
 
@@ -235,7 +202,6 @@ html, body {
     font-size: 2.3em;
     margin-inline: 0.3em;
     animation: blowUp 0.5s ease-in-out forwards, jiggle 0.5s 0.5s, scrollDown 1s 1s forwards;
-    
 }
 
 /* Inspiring Animation */
@@ -246,9 +212,9 @@ html, body {
     margin-inline: 1.2em;
     opacity: 0;
     text-align: center;
-    animation: slideIn 1s 1s forwards, scrollDown 1s 2s forwards; /* Delay to match previous animation end */
-    
+    animation: slideIn 1s 1s forwards, scrollDown 1s 2s forwards;
 }
+
 /* Leading Animation */
 .replacement-1 {
     position: absolute;
@@ -257,9 +223,9 @@ html, body {
     display: inline-block;
     opacity: 0;
     text-align: center;
-    animation: slideIn 1s 2s forwards, scrollDown 1s 3s forwards; /* Delay to match previous animation end */
-    
+    animation: slideIn 1s 2s forwards, scrollDown 1s 3s forwards;
 }
+
 /* Helping Animation */
 .replacement-2 {
     position: absolute;
@@ -268,9 +234,9 @@ html, body {
     display: inline-block;
     opacity: 0;
     text-align: center;
-    animation: slideIn 1s 3s forwards, scrollDown 1s 4s forwards; /* Delay to match previous animation end */
-    
+    animation: slideIn 1s 3s forwards, scrollDown 1s 4s forwards;
 }
+
 /* Empowering Animation */
 .replacement-3 {
     background: linear-gradient(to right, #0614da, #68abe8);
@@ -285,7 +251,6 @@ html, body {
     opacity: 0;
     text-align: center;
     animation: slideIn 1s 4s forwards;
-    
 }
 
 @keyframes blowUp {
@@ -310,6 +275,47 @@ html, body {
     100% { transform: translateY(0); opacity: 1; }
 }
 
+.section2 {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 10em;
+    margin-bottom: 5em;
+}
+
+.image2 {
+    display: flex;
+    justify-content: center; /* Centering content horizontally */
+    width: 100%;
+    padding-inline: 10%;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    max-height: 800px;
+    overflow: hidden;
+    border-radius: 2em;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Make the img element invisible to show the background */
+    border-radius: 2em;
+}
+
+
 
 .container-agreed {
     display: flex;
@@ -318,12 +324,14 @@ html, body {
 
 .submission {
     display: flex;
+    margin-top: 5em;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: -70em;
+
 }
-.submission h2{
+
+.submission h2 {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -361,11 +369,11 @@ html, body {
     box-sizing: border-box;
     box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.75);
     position: fixed;
-    height: 4.9em;
     border-style: solid;
     border-width: thin;
     border-color: rgba(0, 0, 0, 0.1);
     background-color: white;
+    height: 5em;
     margin: 0;
     top: 0;
     left: 0;
@@ -374,7 +382,8 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 9999;
+    overflow: hidden;
 }
 
 .logo {
@@ -385,9 +394,14 @@ html, body {
     padding-inline: 3vw;
     margin: 0;
     font-size: 2.5em;
-    color: #fff;
+    color: #ffffff;
     font-weight: 900;
     text-decoration: none;
+}
+
+.navbar {
+    z-index: 9999;
+    overflow: hidden;
 }
 
 .navbar a {
