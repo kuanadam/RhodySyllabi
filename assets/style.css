@@ -4,7 +4,7 @@
 html, body {
     font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: rgb(0, 0, 0);
-    background: #FFFBF4;
+    background: #ffffff;
 }
 
 
@@ -118,7 +118,6 @@ img {
     justify-content: center;
     margin: 0 auto;
     margin-top: 6em;
-    z-index: 1;
     width: 100%;
     max-width: 3000px;
     padding: 0 5em;
@@ -275,47 +274,56 @@ img {
     100% { transform: translateY(0); opacity: 1; }
 }
 
-.section2 {
+.wrapper{
+    background-color: #F5F5F5;
+    margin-top: 4em;
+    width: 100%;
+    height: 886px;
+}
+
+.section2-intro{
     display: flex;
-    font-family: 'Poppins', sans-serif;
-    color: #000000;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Center content horizontally */
+    background-color:#ffffff;
+    border-radius: 1em;
+    align-items: center;
     text-align: center;
-    text-decoration: none;
-    width: 100%;
-    margin-top: 10em;
-    margin-bottom: 5em;
+    justify-content: center;
+    width: 30%;
+    padding: 1em;
+    box-shadow: 1px 1px 7px#888888;
+    margin: 0 auto;
+    
 }
 
-.image2 {
+.insight {
     display: flex;
-    justify-content: center; /* Centering content horizontally */
-    width: 100%;
-    padding-inline: 10%;
-}
-
-.image-wrapper {
-    position: relative;
-    width: 100%;
-    max-height: 800px;
-    overflow: hidden;
-    border-radius: 2em;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('/assets/background.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0; /* Make the img element invisible to show the background */
-    border-radius: 2em;
+    flex-direction: row;
+    align-items:center ;
+    justify-content: center;
 }
 
 
+.insight img{
+    display: flex;
+    width: 25%;
+    margin-top: 0.5em;
+    
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 1em;
+}
+.text h1{
+    display: flex;
+    font-weight: 900;
+}
+.text p{
+    width: 50%;
+    font-family: 'Roboto',sans-serif;
+}
 
 .container-agreed {
     display: flex;
@@ -370,11 +378,6 @@ img {
     text-align: center;
 }
 
-.uriColor {
-    background: linear-gradient(to right, #68abe8 50%, #041e42 50%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
 
 .header {
     display: flex;
@@ -382,7 +385,7 @@ img {
     align-content: center;
     margin: 0 auto;
     box-sizing: border-box;
-    box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 1px 7px#888888;
     position: fixed;
     border-style: solid;
     border-width: thin;
@@ -393,7 +396,7 @@ img {
     margin: 0;
     top: 0;
     left: 0;
-    padding: 0.5rem 6.25rem;
+    
     display: flex;
     z-index: 9999;
     overflow: hidden;
@@ -402,13 +405,16 @@ img {
 
 .logo {
     display: flex;
-    margin: 0;
+    justify-content: left;
+    flex-wrap: wrap;
+    margin: auto 5em;
     padding: 0;
     height: auto;
     width: 100%;
     font-size: 2.5em;
     font-weight: 900;
 }
+
 .logo a {
     display: flex;
     background: linear-gradient(to right, #68abe8 50%, #041e42 50%);
@@ -421,8 +427,8 @@ img {
 
 .logo img {
     display: flex;
-    width: auto;
-    height: auto;
+    width: 1.5em;
+    height: 1.5em;
     
 }
 
@@ -433,17 +439,17 @@ img {
     z-index: 9999;
     width: 100%;
     justify-content: right;
+    margin-right: 3em;
     
    
 }
 
 .navbar a {
     display: flex;
-    font-size: 1.7em;
-    font-family: "Poppins", sans-serif;
+    font-size: 1.3em;
+    font-family: "Roboto", sans-serif;
     padding: 1em;
     color: #000000;
-    font-weight: 700;
     text-decoration: none;
 }
 
