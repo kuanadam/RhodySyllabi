@@ -21,26 +21,23 @@
     </header>
     <div class="submission">
         <h2>Kindly complete the form below to request the addition of your syllabus to the syllabus library</h2>
-
+        <div class = "formcontent">
         <form action="/submit" method="POST" enctype = "multipart/form-data" id = "submissionForm">
             <label>Course
                 <input name="course" placeholder="ex: CSC 106" required/>
             </label>
-            <br>
             <label>Professor
                 <input name="professor" required/>
             </label>
-            <br>
             <label>Upload the Syllabus File URL
                 <input name="syllabi_File" type="file" required/>
             </label>
-            <br>
             <label>Date when Syllabus was received
                 <input name="syllabi_Date" type="date" required/>
             </label>
-            <br>
             <button id = "submitButton" type="submit">Submit</button>
         </form>
+        </div>
     </div>
     <div id = "popUp" class = "model">
         <div class = "model-content">
