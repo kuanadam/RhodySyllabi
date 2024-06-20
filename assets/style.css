@@ -110,14 +110,6 @@ img {
     padding-inline: 30%;
 }
 
-.formcontent {
-    display: flex;
-    flex-direction: row;
-    padding: 20em;
-    background: #ffffff;
-    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.1);
-    border-color: rgba(0, 0, 0, 0.1);
-}
 
 .homePage {
     display: grid;
@@ -412,11 +404,15 @@ img {
     flex-direction: row;
 }
 
+
+.form-wrapper {
+    
+}
 .submission {
     display: flex;
     margin-top: 6em;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -431,14 +427,51 @@ img {
 }
 
 
-.submission h2 {
+
+
+.form-background {
+    background: #ffffff;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
+    margin: 2em;
+    width: 100%;
+    max-width: 1200px;
+
+}
+.contact {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5em;
+    box-sizing: border-box;
+    border-top: #ffffff;
+    border-left: #ffffff;
+    border-right: #ffffff;
+    border-bottom: #000000;
+    border-style: solid;
+    border-width: thin;
+    padding-bottom: 10px;
+    width: 40%;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-intro {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 2em;
+    width: 40%;
 }
 
+.form-intro h2 {
+    padding-bottom: 2em;
+
+}
 .model {
     display: none;
     position: fixed;

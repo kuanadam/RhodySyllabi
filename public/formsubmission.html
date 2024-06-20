@@ -3,42 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "../assets/reset.css">
+    <link rel="stylesheet" href="../assets/reset.css">
     <link rel="stylesheet" href="../assets/style.css">
     <title>Syllabus Submission</title>
 </head>
 <body>
     <header class="header">
-        <div class ="logo" >
-        <img src="/assets/rhodysyllabi_logo.png">
-        <a href="homepage.html">RhodySyllabi</a>
+        <div class="logo">
+            <img src="/assets/rhodysyllabi_logo.png" alt="RhodySyllabi Logo">
+            <a href="homepage.html">RhodySyllabi</a>
         </div>
         <nav class="navbar">
             <a href="homepage.html">Search</a>
+            <a href="submissions">Explore</a>
             <a href="formsubmission.html">Form</a>
-            <a href="submissions">Library</a>
+            <a href="about.html">About</a>
         </nav>
     </header>
-    <div class="submission">
-        <h2>Kindly complete the form below to request the addition of your syllabus to the syllabus library</h2>
-        <div class = "formcontent">
-        <form action="/submit" method="POST" enctype = "multipart/form-data" id = "submissionForm">
-            <label>Course
-                <input name="course" placeholder="ex: CSC 106" required/>
-            </label>
-            <label>Professor
-                <input name="professor" required/>
-            </label>
-            <label>Upload the Syllabus File URL
-                <input name="syllabi_File" type="file" required/>
-            </label>
-            <label>Date when Syllabus was received
-                <input name="syllabi_Date" type="date" required/>
-            </label>
-            <button id = "submitButton" type="submit">Submit</button>
-        </form>
+    
+    <div class="form-wrapper">
+        <div class="submission">
+            <div class="form-intro">
+                <h2>At RhodySyllabi, we are committed to fostering an academic community where students can easily access and share course syllabi.</h2>
+                <h3>By contributing your syllabus, you help build a valuable resource that benefits the entire student community at the University of Rhode Island.</h3>
+            </div>
+            <div class="form-background">
+                <div class="form-content">
+                    <h1 class = "contact">Contact Information</h1>
+                    <form action="/submit" method="POST" enctype="multipart/form-data" id="submissionForm">
+                        <div class="form-input">
+                            <label for="course">Course
+                                <input id="course" name="course" placeholder="ex: CSC 106" required/>
+                            </label>
+                        </div>
+                        <div class="form-input">
+                            <label for="professor">Professor
+                                <input id="professor" name="professor" required/>
+                            </label>
+                        </div>
+                        <div class="form-input">
+                            <label for="syllabi_File">Upload the Syllabus File
+                                <input id="syllabi_File" name="syllabi_File" type="file" required/>
+                            </label>
+                        </div>
+                        <div class="form-input">
+                            <label for="syllabi_Date">Date when Syllabus was received
+                                <input id="syllabi_Date" name="syllabi_Date" type="date" required/>
+                            </label>
+                        </div>
+                        <button id="submitButton" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+
+
+
+
+
     <div id = "popUp" class = "model">
         <div class = "model-content">
             <p>Submission Was Successful</p>
