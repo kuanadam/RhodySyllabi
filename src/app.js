@@ -37,7 +37,7 @@ const pool = mysql.createPool({
 
 // Set up storage engine for multer
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, '..' ,'uploads'),
+    destination: path.join(__dirname, '..', 'uploads'),
     filename: (req, file, cb) => {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
@@ -46,7 +46,6 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage
 }).single('syllabi_File');
-
 
 // Serve the homepage with the search form
 app.get('/', (req, res) => {
@@ -60,24 +59,38 @@ app.get('/formsubmission.html', (req, res) => {
 
 // Handle form submission
 app.post('/submit', upload, async (req, res) => {
-    // Check if the file was uploaded
     if (!req.file) {
+        console.error('No file uploaded.');
         return res.status(400).send('No file uploaded.');
     }
 
-    const formData = {
-        course: req.body.course,
-        professor: req.body.professor,
-        syllabi_File: req.file.filename, // Use req.file.filename for the uploaded file
-        original_filename: req.file.originalname,
-        syllabi_Date: req.body.syllabi_Date
+    const contactData = {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email
     };
 
-    console.log('Form Data:', formData); // Log form data
+    const courseData = {
+        professor: req.body.professor,
+        course_prefix: req.body.course_prefix,
+        course_code: req.body.course_code,
+        academic_season: req.body.academic_season,
+        academic_year: req.body.academic_year,
+        syllabus_file: req.file.filename,
+        original_filename: req.file.originalname,
+        contactinfo_id: null  // This will be set after inserting the contact
+    };
 
     try {
-        const [result] = await pool.query('INSERT INTO rhodydatabase SET ?', formData);
-        console.log('Database Result:', result); // Log result from the database
+        // Insert contact information
+        const [contactResult] = await pool.query('INSERT INTO contactinfo SET ?', contactData);
+        courseData.contactinfo_id = contactResult.insertId;
+        console.log('Contact information inserted successfully:', contactData);
+
+        // Insert course information
+        await pool.query('INSERT INTO course_Info SET ?', courseData);
+        console.log('Course information inserted successfully:', courseData);
+
         res.redirect('/formsubmission.html');
     } catch (err) {
         console.error('Database Error:', err); // Log any errors
@@ -90,16 +103,18 @@ app.get('/search', async (req, res) => {
     const query = req.query.query;
     const searchQuery = `%${query}%`;
 
-    try {
-        const [rows] = await pool.query('SELECT * FROM rhodydatabase WHERE course LIKE ?', [searchQuery]);
-        
-        // Format dates
-        const formattedRows = rows.map(row => ({
-            ...row,
-            syllabi_Date: new Date(row.syllabi_Date).toISOString().split('T')[0] // Format date to YYYY-MM-DD
-        }));
+    console.log('Search query:', searchQuery);
 
-        res.render('results', { results: formattedRows, query: query });
+    try {
+        const [rows] = await pool.query(`
+            SELECT * FROM course_Info 
+            WHERE CONCAT(course_prefix, ' ', course_code) LIKE ? 
+            OR professor LIKE ?`, 
+            [searchQuery, searchQuery]
+        );
+        console.log('Search results:', rows);
+
+        res.render('results', { results: rows, query: query });
     } catch (err) {
         console.error('Database Error:', err); // Log any errors
         res.status(500).send(err);
@@ -109,7 +124,8 @@ app.get('/search', async (req, res) => {
 // Retrieve data from the database
 app.get('/data', async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM rhodydatabase');
+        const [rows] = await pool.query('SELECT * FROM course_Info');
+        console.log('Data retrieved successfully:', rows);
         res.json(rows);
     } catch (err) {
         console.error('Database Error:', err); // Log any errors
@@ -120,15 +136,9 @@ app.get('/data', async (req, res) => {
 // Retrieve and display all submissions
 app.get('/submissions', async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM rhodydatabase');
-
-        // Format dates
-        const formattedRows = rows.map(row => ({
-            ...row,
-            syllabi_Date: new Date(row.syllabi_Date).toISOString().split('T')[0] // Format date to YYYY-MM-DD
-        }));
-
-        res.render('submissions', { submissions: formattedRows });
+        const [rows] = await pool.query('SELECT * FROM course_Info');
+        console.log('All submissions retrieved successfully:', rows);
+        res.render('submissions', { submissions: rows });
     } catch (err) {
         console.error('Database Error:', err); // Log any errors
         res.status(500).send(err);
