@@ -9,40 +9,38 @@
 </head>
 <body>
     <header class="header">
-        <div class ="logo" >
-        <img src="/assets/rhodysyllabi_logo.png">
-        <a href="homepage.html">RhodySyllabi</a>
+        <div class="logo">
+            <img src="/assets/rhodysyllabi_logo.png" alt="RhodySyllabi Logo">
+            <a href="homepage.html">RhodySyllabi</a>
         </div>
         <nav class="navbar">
             <a href="homepage.html">Search</a>
             <a href="submissions">Explore</a>
             <a href="formsubmission.html">Form</a>
-            <a href="submissions">About</a>
+            <a href="about.html">About</a>
         </nav>
     </header>
-    <div class = "container">
-    <h1>Search Results for "<%= query %>"</h1>
-    
-    <% if (results.length > 0) { %>
-        <table>
-            <tr>
-                <th>Course</th>
-                <th>Professor</th>
-                <th>Syllabus File</th>
-                <th>Date</th>
-            </tr>
-            <% results.forEach(row => { %>
+    <div class="container">
+        <h1>Search Results for "<%= query %>"</h1>
+        
+        <% if (results.length > 0) { %>
+            <table>
                 <tr>
-                    <td><%= row.course %></td>
-                    <td><%= row.professor %></td>
-                    <td><a href="/uploads/<%= row.syllabi_File %>"><%= row.original_filename %></a></td>
-                    <td><%= row.syllabi_Date %></td>
+                    <th>Course</th>
+                    <th>Professor</th>
+                    <th>Syllabus File</th>
                 </tr>
-            <% }) %>
-        </table>
-    <% } else { %>
-        <p>No results found.</p>
-    <% } %>
+                <% results.forEach(row => { %>
+                    <tr>
+                        <td><%= row.course_prefix + ' ' + row.course_code %></td>
+                        <td><%= row.professor %></td>
+                        <td><a href="/uploads/<%= row.syllabus_file %>" target="_blank" rel="noopener noreferrer"><%= row.original_filename %></a></td>
+                    </tr>
+                <% }) %>
+            </table>
+        <% } else { %>
+            <p>No results found.</p>
+        <% } %>
     </div>
 </body>
 </html>

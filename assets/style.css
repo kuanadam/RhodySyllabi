@@ -298,19 +298,24 @@ img {
 .insight {
     display: flex;
     flex-direction: row;
-    align-items: center ;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
 }
 
-.insight h1{
-    font-size: 3em;
-}
 
-.insight img{
+.imginsight{
     display: flex;
     width: 25%;
     margin-top: 0.5em;
     
+}
+
+.insight-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 .wrapper2{
@@ -329,46 +334,38 @@ img {
     display: flex;
     width: 30%;
     margin-top: 0.5em;
+    
 }
 
 .prepare2 {
     display: flex;
-    flex-direction: row;
-    align-items: center ;
-    justify-content: center;
+    align-items: center;
+    justify-content: right;
 }
 
 .prepare2 img{
     display: flex;
-    width: 25%;
+    width: 23%;
     margin-top: 0.5em;
 }
 
 .wrapper3 {
     background: #F8F8FA;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.wrapper3 {
-    background: #F8F8FA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .text-3 {
-    display: flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start; /* Align items to the start (left) */
   text-align: left; /* Align text to the left */
+  width: 50%;
 }
 
 
 .text-2 h1{
-    font-size: 3em;
+    font-size: 2em;
 }
 .text-2 p{
     width:75%;
@@ -412,19 +409,10 @@ img {
     display: flex;
     margin-top: 6em;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: crow;
     align-items: center;
 }
 
-
-.submission input {
-    display: flex;
-    outline: none;
-    border: none;
-    background-color: rgb(180, 180, 180);
-    border-style: solid;
-    border-width: thin;
-}
 
 
 
@@ -450,7 +438,21 @@ img {
     border-style: solid;
     border-width: thin;
     padding-bottom: 10px;
-    width: 40%;
+}
+
+.syllabus {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5em;
+    box-sizing: border-box;
+    border-top: #ffffff;
+    border-left: #ffffff;
+    border-right: #ffffff;
+    border-bottom: #000000;
+    border-style: solid;
+    border-width: thin;
+    padding-bottom: 10px;
+    
 }
 
 .form-content {
@@ -468,10 +470,38 @@ img {
     width: 40%;
 }
 
+
 .form-intro h2 {
     padding-bottom: 2em;
 
 }
+
+.form-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-input input {
+    display: flex;
+    padding-left: 0.2e;
+    padding-right: 5em;
+    background: #f6f6f6;
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(0, 0, 0, 0.1);
+    transition: 0.25s;
+}
+
+.form-input input:focus {
+    border-color: rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+    outline: none; 
+}
+
+
+
+
 .model {
     display: none;
     position: fixed;
@@ -519,30 +549,31 @@ img {
 
 .logo {
     display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
-    margin: auto 5em;
-    padding: 0;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
     height: auto;
     width: 100%;
     font-size: 2.5em;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 .logo a {
     display: flex;
-    background: linear-gradient(to right, #68abe8 50%, #041e42 50%);
+    margin-right: 10em;
+    background: linear-gradient(to right, #68abe8 46%, #041e42 50%);
     background-clip: text;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Poppins', sans-serif;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
+    font-size: 0.8em;
     
 }
 
 .logo img {
     display: flex;
-    width: 1.5em;
-    height: 1.5em;
+    width: 1em;
+    height: auto;
     
 }
 
