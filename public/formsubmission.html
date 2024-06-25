@@ -32,6 +32,7 @@
                     <form action="/submit" method="POST" enctype="multipart/form-data" id="submissionForm">
                     
                     <h1 class = "contact">Contact Information</h1>
+                    <div class = "form-row">
                     <div class="form-input">
                         <label for="first_name">First Name
                             <input id="first_name" name="first_name" required/>
@@ -42,9 +43,10 @@
                             <input id="last_name" name="last_name"required/>
                         </label>
                     </div>
+                </div>
                     <div class="form-input">
                         <label for="email">Email
-                            <input id="email" name="email"required/>
+                            <input class = "extend" id="email" name="email"required/>
                         </label>
                     </div>
 
@@ -58,6 +60,7 @@
                                 <input id="professor" name="professor" required/>
                             </label>
                         </div>
+                    <div class = "form-row">
                         <div class="form-input">
                             <label for="course_prefix">Course Prefix
                                 <input id="course_prefix" name="course_prefix" required/>
@@ -68,6 +71,8 @@
                                 <input id="course_code" name="course_code" required/>
                             </label>
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-input">
                             <label for="academic_season">Academic Season
                                 <input id="academic_season" name="academic_season" required/>
@@ -78,6 +83,7 @@
                                 <input id="academic_year" name="academic_year" required/>
                             </label>
                         </div>
+                    </div>
                         <div class="form-input">
                             <label for="syllabi_File">Upload the Syllabus File
                                 <input id="syllabi_File" name="syllabi_File" type="file" required/>

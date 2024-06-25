@@ -403,14 +403,14 @@ img {
 
 
 .form-wrapper {
-    
 }
+
 .submission {
     display: flex;
-    margin-top: 6em;
     justify-content: center;
-    flex-direction: crow;
     align-items: center;
+    
+    height: 90vh;
 }
 
 
@@ -472,15 +472,24 @@ img {
 
 
 .form-intro h2 {
+
     padding-bottom: 2em;
 
 }
 
-.form-input {
+.form-row{
     display: flex;
-    justify-content: center;
-    align-items: center;
+
 }
+
+
+.form-input input{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+}
+
 .form-input input {
     display: flex;
     padding-left: 0.2e;
