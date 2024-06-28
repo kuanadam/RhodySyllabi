@@ -517,7 +517,7 @@ img {
 
 .form-input input {
     display: flex;
-    padding-left: 0.2e;
+    padding-left: 0.2em;
     padding-right: 5em;
     background: #f6f6f6;
     box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
@@ -556,44 +556,86 @@ img {
 /*results.ejs css */
 
 .resultwrapper {
-    position: fixed;
+    position: absolute;
     top: 0; /* Ensure it's positioned at the top */
     left: 0; /* Ensure it starts from the left */
-    display: flex;
-    flex-direction: column; /* Stack header and content vertically */
     width: 100%;
-    margin-top: 4em;
-    min-height: 100%;
+    height: 100%;
     background-color: white; /* Optional: Add background color for clarity */
 }
 
 .result-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 35%;
-    height: 30%;
-    flex-grow: 1; /* Ensure it takes remaining space */
+    margin-top: 25em;
     padding: 20px; /* Optional: Add padding for spacing */
     transform: translateY(-300px); /* Move up by 50 pixels */
+    width: 100%;
 }
-
 
 .result-content{
     display: flex;
     justify-content: center;
-    align-items: left;
+    align-items: flex-start;
     text-align: left;
     flex-direction: column;
+    gap: 2em;
+    width: 50%;
+
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2em;
+    width: 100%;
+    border-bottom: 1px solid #EEEEEE;
+    border-width: 0.18em;
+    padding-bottom: 2em;
 }
 
 
-.result-input input{
 
-    outline: none;
+.professor {
+    display: flex;
+    align-items: center;
     border-color: rgba(0,0,0,0.1);
     border-width: thin;
     border-style: solid;
-    box-shadow: 1px 1px 7px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 7px rgba(0,0,0,0.2);
+    background-color: #F1F1F1;
+    padding: 0.5em;
+    min-width: 30%;
+    border-radius: 0.3em;
 }
 
+.professor-2{
+    display: flex;
+    align-items: center;
+    border-color: rgba(0,0,0,0.1);
+    border-width: thin;
+    border-style: solid;
+    box-shadow: 1px 1px 7px rgba(0,0,0,0.2);
+    background-color: #F1F1F1;
+    padding: 0.5em;
+    min-width: 30%;
+    border-radius: 0.3em;
+}
+.result-input2,.result-input3, .result-input4{
+    display: flex;
+    width: 100%;
+    outline: 0;
+    border: 0;
+    background: transparent;
+}
+
+
+
+.professor .material-symbols-outlined {
+    font-size: 24px; /* Adjust size as needed */
+    margin-right: 0.5em; /* Adjust spacing as needed */
+}

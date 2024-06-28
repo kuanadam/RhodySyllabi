@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/reset.css">
     <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Search Results</title>
 </head>
 <body>
@@ -25,30 +26,39 @@
         <div class="result-container">
             <div class="result-content">
                 <h1>Search Results for "<%= query %>"</h1>
-                <div class="result-input">
-                    <input placeholder="Professor Name...">
-                    <input placeholder="Department:">
-                    <input placeholder="Academic Term:">
+                <div class="input-container">
+                    <div class="professor">
+                        <span class="material-symbols-outlined">search</span>
+                        <input class="result-input2" placeholder="Professor Name...">
+                    </div>
+                    <div class = "professor-2">
+                    <input class="result-input3" placeholder="Department:">
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </div>
-                <% if (results.length > 0) { %>
-                    <table>
-                        <tr>
-                            <th>Course</th>
-                            <th>Professor</th>
-                            <th>Syllabus File</th>
-                        </tr>
-                        <% results.forEach(row => { %>
-                            <tr>
-                                <td><%= row.course_prefix + ' ' + row.course_code %></td>
-                                <td><%= row.professor %></td>
-                                <td><a href="/uploads/<%= row.syllabus_file %>" target="_blank" rel="noopener noreferrer"><%= row.original_filename %></a></td>
-                            </tr>
-                        <% }) %>
-                    </table>
-                <% } else { %>
-                    <p>No results found.</p>
-                <% } %>
+                <div class = "professor-2">
+                    <input class="result-input4" placeholder="Academic Term:">
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                </div>
+                </div>
             </div>
+                <% if (results.length > 0) { %>
+            <table>
+                <tr>
+                    <th>Course</th>
+                    <th>Professor</th>
+                    <th>Syllabus File</th>
+                </tr>
+                <% results.forEach(row => { %>
+                    <tr>
+                        <td><%= row.course_prefix + ' ' + row.course_code %></td>
+                        <td><%= row.professor %></td>
+                        <td><a href="/uploads/<%= row.syllabus_file %>" target="_blank" rel="noopener noreferrer"><%= row.original_filename %></a></td>
+                    </tr>
+                <% }) %>
+            </table>
+        <% } else { %>
+            <p>No results found.</p>
+        <% } %>
         </div>
     </div>
 </body>
