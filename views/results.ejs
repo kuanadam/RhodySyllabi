@@ -27,18 +27,33 @@
             <div class="result-content">
                 <h1>Search Results for "<%= query %>"</h1>
                 <div class="input-container">
-                    <div class="professor">
+                    <form class="professor" action="/search" method="GET">
                         <span class="material-symbols-outlined">search</span>
-                        <input class="result-input2" placeholder="Professor Name...">
+                        <input class="result-input2" type="text" name="query" placeholder="Professor Name...">
+                    </form>
+                    <div class="professor-2">
+                        <select class="result-input3" id="department-select">
+                            <option value="" disabled selected>Department</option>
+                        </select>
                     </div>
-                    <div class = "professor-2">
-                    <input class="result-input3" placeholder="Department:">
-                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                </div>
-                <div class = "professor-2">
-                    <input class="result-input4" placeholder="Academic Term:">
-                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                </div>
+                    <div class="professor-2">
+                        <select class="result-input4">
+                            <option value="" disabled selected>Academic Term</option>
+                            <option value="Fall">Fall</option>
+                            <option value="Winter">Winter</option>
+                            <option value="Spring">Spring</option>
+                            <option value="Summer">Summer</option>
+                        </select>
+                        <select class="result-input5">
+                            <option value="" disabled selected>Academic Year</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <!-- Add more academic year options as needed -->
+                        </select>
+                    </div>
                 </div>
             </div>
                 <% if (results.length > 0) { %>
@@ -61,5 +76,6 @@
         <% } %>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

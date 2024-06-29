@@ -151,39 +151,28 @@ img {
 /*homepage.html css */
 
 .homePage {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
     margin-top: 6em;
     width: 100%;
+    height: 100%;
     max-width: 3000px;
-    padding: 0 5
+
 }
 
-
-.img-banner {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 0;
-}
-
-.img-banner img {
-    width: 75%; /* Adjust the image width as needed */
-    height: auto;
-}
 
 .textcontent {
     display: flex;
     font-size: -3em;
-    width: 100%;
-    margin: 0 auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translateX(50px); /* Moves the element 50px to the right */
+    margin-top: 11em;
+    gap: 1em;
+}
+
+.container-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .features {
@@ -209,18 +198,19 @@ img {
 
 .search {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    background: #f6f6f6;
+    background: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     padding: 1rem;
     width: 100%;
-    border-radius: 3rem;
+    border-radius: 0.5em;
     transition: 0.25s;
 }
 
 .search-input {
-    font-size: 1.3rem;
     font-family: 'Montserrat', sans-serif;
+    width: 100%;
     outline: none;
     border: none;
     margin-left: 2rem;
@@ -234,6 +224,7 @@ img {
 
 .search:focus-within {
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.75);
+    
 }
 
 /* Motivating Animation */
@@ -582,7 +573,7 @@ img {
     text-align: left;
     flex-direction: column;
     gap: 2em;
-    width: 50%;
+    width: 55%;
 
 }
 
@@ -625,7 +616,8 @@ img {
     min-width: 30%;
     border-radius: 0.3em;
 }
-.result-input2,.result-input3, .result-input4{
+
+.result-input2, .result-input3, .result-input4, .result-input5 {
     display: flex;
     width: 100%;
     outline: 0;
@@ -635,7 +627,31 @@ img {
 
 
 
+
+
+
 .professor .material-symbols-outlined {
     font-size: 24px; /* Adjust size as needed */
     margin-right: 0.5em; /* Adjust spacing as needed */
+}
+
+
+/* submission.ejs */
+
+.submisson-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.submission-page{
+    margin-top: 6em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
 }
