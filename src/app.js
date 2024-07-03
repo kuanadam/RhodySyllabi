@@ -70,22 +70,29 @@ app.post('/submit', upload, async (req, res) => {
         email: req.body.email
     };
 
-    const courseData = {
-        professor: req.body.professor,
-        course_prefix: req.body.course_prefix,
-        course_code: req.body.course_code,
-        academic_season: req.body.academic_season,
-        academic_year: req.body.academic_year,
-        syllabus_file: req.file.filename,
-        original_filename: req.file.originalname,
-        contactinfo_id: null  // This will be set after inserting the contact
-    };
-
     try {
         // Insert contact information
         const [contactResult] = await pool.query('INSERT INTO contactinfo SET ?', contactData);
-        courseData.contactinfo_id = contactResult.insertId;
-        console.log('Contact information inserted successfully:', contactData);
+        const contactinfo_id = contactResult.insertId;
+
+        // Fetch course_prefix based on department_id
+        const [departmentResult] = await pool.query('SELECT prefix FROM departments WHERE id = ?', [req.body.department_id]);
+        if (departmentResult.length === 0) {
+            throw new Error('Invalid department_id');
+        }
+        const course_prefix = departmentResult[0].prefix;
+
+        const courseData = {
+            professor: req.body.professor,
+            course_prefix: course_prefix,
+            course_code: req.body.course_code,
+            academic_season: req.body.academic_season,
+            academic_year: req.body.academic_year,
+            syllabus_file: req.file.filename,
+            original_filename: req.file.originalname,
+            contactinfo_id: contactinfo_id,
+            department_id: req.body.department_id
+        };
 
         // Insert course information
         await pool.query('INSERT INTO course_Info SET ?', courseData);
@@ -98,28 +105,56 @@ app.post('/submit', upload, async (req, res) => {
     }
 });
 
-// Handle search queries and render results page
+
+
 app.get('/search', async (req, res) => {
     const query = req.query.query;
+    const department = req.query.department;
     const searchQuery = `%${query}%`;
+    const departmentQuery = department ? `%${department}%` : '%%'; // Handle undefined department
 
     console.log('Search query:', searchQuery);
+    console.log('Department query:', departmentQuery);
 
     try {
         const [rows] = await pool.query(`
-            SELECT * FROM course_Info 
-            WHERE CONCAT(course_prefix, ' ', course_code) LIKE ? 
-            OR professor LIKE ?`, 
-            [searchQuery, searchQuery]
+            SELECT ci.professor, ci.course_prefix, ci.course_code, ci.syllabus_file, ci.original_filename, d.name as department, d.prefix
+            FROM course_Info ci
+            JOIN departments d ON ci.department_id = d.id
+            WHERE (CONCAT(ci.course_prefix, ' ', ci.course_code) LIKE ? 
+            OR ci.professor LIKE ?)
+            AND d.name LIKE ?
+            ORDER BY ci.professor`, 
+            [searchQuery, searchQuery, departmentQuery]
         );
         console.log('Search results:', rows);
 
-        res.render('results', { results: rows, query: query });
+        // Group results by professor
+        const groupedResults = rows.reduce((acc, row) => {
+            if (!acc[row.professor]) {
+                acc[row.professor] = {
+                    professor: row.professor,
+                    department: row.department,
+                    syllabi: []
+                };
+            }
+            acc[row.professor].syllabi.push({
+                course_prefix: row.prefix,
+                course_code: row.course_code,
+                syllabus_file: row.syllabus_file,
+                original_filename: row.original_filename
+            });
+            return acc;
+        }, {});
+
+        res.render('results', { groupedResults: Object.values(groupedResults), query: query });
     } catch (err) {
         console.error('Database Error:', err); // Log any errors
         res.status(500).send(err);
     }
 });
+
+
 
 // Retrieve data from the database
 app.get('/data', async (req, res) => {
