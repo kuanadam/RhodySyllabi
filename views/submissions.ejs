@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/assets/style.css">
     <title>All Submissions</title>
 </head>
-<body class="subejs">
+<body">
     <header class="header">
         <div class="logo">
             <img src="/assets/rhodysyllabi_logo.png" alt="RhodySyllabi Logo">
@@ -20,7 +20,8 @@
             <a href="about.html">About</a>
         </nav>
     </header>
-    <div class="container">
+<div class = "submission-wrapper">
+    <div class="submission-page">
         <h1>All Syllabus Submissions</h1>
         <% if (submissions.length > 0) { %>
             <table>
@@ -41,5 +42,8 @@
             <p>No submissions found.</p>
         <% } %>
     </div>
+</div>
 </body>
 </html>
+
+
